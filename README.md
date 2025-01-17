@@ -20,10 +20,10 @@ pdflatex myfile.latex
 This will output `myfile.pdf`.
 
 Features:
--[ ] LaTeX Template for the starting pages.
--[ ] Markdown for the actual document.
--[ ] Guide to using Pandoc to generate the content.
--[ ] Adding Bibliographies using Pandoc.
+- [ ] LaTeX Template for the starting pages.
+- [ ] Markdown for the actual document.
+- [ ] Guide to using Pandoc to generate the content.
+- [ ] Adding Bibliographies using Pandoc.
 
 ### Guides
 [Guide to LaTeX](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes#Writing_your_first_piece_of_LaTeX)
