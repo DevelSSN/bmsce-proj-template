@@ -5,13 +5,19 @@
 \documentclass[
   12pt,
   a4paper,
-]{book}
+  option1,
+  option2]{book}
 \usepackage{beamerarticle} % needs to be loaded first
 \usepackage{xcolor}
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \usepackage{amsmath,amssymb}
 \setcounter{secnumdepth}{3}
 \usepackage{iftex}
+\usepackage{graphicx}
+\usepackage{tabulary}
+\usepackage{lipsum}
+\hyphenpenalty=10000
+\sloppy
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
@@ -95,8 +101,6 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={Default Title},
-  pdfauthor={Author 1; Author 2},
   pdfkeywords={Keyword1, Keyword2, Keyword3},
   colorlinks=true,
   linkcolor={Maroon},
@@ -105,24 +109,14 @@
   urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
-\title{Default Title}
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-\subtitle{Optional Subtitle}
-\author{Author 1 \and Author 2}
-\date{2025-01-17}
+\author{}
+\date{}
 
 \begin{document}
-\frontmatter
-\maketitle
-\begin{abstract}
-This is a brief abstract of the document.
-\end{abstract}
 
+
+\frontmatter
+\include{frontpage}
 \renewcommand*\contentsname{Table of Contents}
 {
 \hypersetup{linkcolor=blue}
