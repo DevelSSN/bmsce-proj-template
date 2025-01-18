@@ -19,8 +19,10 @@ pdflatex myfile.latex
 ```
 This will output `myfile.pdf`.
 
-Features:
-- [ ] LaTeX Template for the starting pages.
+### Features:
+
+- [x] LaTeX Template for the starting pages.
+- [ ] Wiki to explain the workings.
 - [ ] Markdown for the actual document.
 - [ ] Guide to using Pandoc to generate the content.
 - [ ] Adding Bibliographies using Pandoc.
