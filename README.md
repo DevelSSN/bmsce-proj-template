@@ -19,6 +19,9 @@ pdflatex myfile.latex
 ```
 This will output `myfile.pdf`.
 
+Alternatively, scripts for *nix have been added to assist in the creation of the latex.
+Currently, PDF Can be only using Overleaf.
+
 ### Features:
 
 - [x] LaTeX Template for the starting pages.
