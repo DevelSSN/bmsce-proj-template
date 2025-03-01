@@ -11,40 +11,13 @@ check_tlmgr_installed() {
 # Function to install required LaTeX packages using tlmgr
 install_required_packages() {
     required_packages=(
-        amsfonts
-        amsmath
-        lm
-        unicode-math
-        iftex
-        listings
-        fancyvrb
-        longtable
-        booktabs
-        multirow
-        graphicx
-        bookmark
-        xcolor
-        soul
-        geometry
-        setspace
-        babel
-        xeCJK
-        luatexja
-        framed
-        fontspec
-        selnolig
-        lua-ul
-        bidi
-        mathspec
-        upquote
-        microtype
-        parskip
-        xurl
-        footnotehyper
-        natbib
-        biblatex
-        bibtex
-        biber
+		tabulary
+		graphicx
+		lipsum
+		geometry
+		soul
+		hyphenat
+		ragged2e
     )
 
     # Ensure tlmgr is up-to-date before installing packages
@@ -53,7 +26,7 @@ install_required_packages() {
 
     echo "Installing required LaTeX packages..."
     for package in "${required_packages[@]}"; do
-        echo "Installing $package..."
+  echo "Installing $package..."
         tlmgr install "$package"
     done
     echo "All required LaTeX packages are installed."

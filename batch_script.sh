@@ -14,8 +14,7 @@ cd ../
 cp template.tex main.tex
 LATEXFILE="./markdown/tmp.tex"
 cat "$LATEXFILE" >> ./main.tex
-echo '\backmatter
-\end{document}' >> main.tex
+echo '\end{document}' >> main.tex
 rm $LATEXFILE
 rm ./markdown/tmp.yaml
-pandoc main.tex -o output.pdf
+pdflatex main.tex
