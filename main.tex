@@ -16,6 +16,7 @@
 \usepackage{graphicx}
 \usepackage{tabulary}
 \usepackage{lipsum}
+\usepackage{tikz}
 \hyphenpenalty=10000
 \sloppy
 \ifPDFTeX
@@ -167,6 +168,12 @@
   Here, mention the motivation behind the project.
 \end{itemize}
 
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=0.5\textheight]{./markdown/Me2.jpg}
+\caption{Programmer}
+\end{figure}
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -177,7 +184,6 @@
 \item
   Any ideas on how the project goes about doing that?
 \end{enumerate}
-
 \chapter{Requirements}\label{sec:Requirements}
 
 \begin{itemize}
@@ -198,6 +204,14 @@
 \tightlist
 \item
   Explain the working of the project.
+\end{itemize}
+
+Below is a State Transition Diagram for a simple traffic light system:
+
+This diagram shows the state transitions of a traffic light system.
+
+\begin{itemize}
+\tightlist
 \item
   As per department/guide concerned, modify this to be several
   sections/chapters long.

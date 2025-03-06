@@ -18,6 +18,7 @@ install_required_packages() {
 		soul
 		hyphenat
 		ragged2e
+		pgf
     )
 
     # Ensure tlmgr is up-to-date before installing packages
