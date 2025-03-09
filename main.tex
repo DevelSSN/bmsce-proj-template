@@ -1,13 +1,10 @@
-% Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 \documentclass[
   12pt,
   a4paper,
-  option1,
-  option2]{report}
-\usepackage{beamerarticle} % needs to be loaded first
+  ]{report}
 \usepackage{xcolor}
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \usepackage{amsmath,amssymb}
@@ -16,6 +13,7 @@
 \usepackage{graphicx}
 \usepackage{tabulary}
 \usepackage{lipsum}
+\usepackage{tikz}
 \hyphenpenalty=10000
 \sloppy
 \ifPDFTeX
@@ -28,11 +26,8 @@
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 \usepackage{lmodern}
-\ifPDFTeX\else
-  % xetex/luatex font selection
-\fi
-% Use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\usepackage[backend=biber, style=alphabetic]{biblatex}
+\addbibresource{references.bib}
 \IfFileExists{microtype.sty}{% use microtype if available
   \usepackage[]{microtype}
   \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
@@ -61,8 +56,6 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\usepackage[]{natbib}
-\bibliographystyle{plainnat}
 \makeatletter
 \@ifpackageloaded{subfig}{}{\usepackage{subfig}}
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
@@ -109,9 +102,6 @@
   urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
-\author{}
-\date{}
-
 \begin{document}
 
 \include{frontpage}
@@ -126,112 +116,128 @@
 \setstretch{1.5}
 \clearpage
 \pagenumbering{arabic}
-\chapter{GENERAL GUIDELINES:}\label{general-guidelines}
+\chapter{Introduction to Quantum Computing}\label{chap1}
 
-\begin{itemize}
-\tightlist
-\item
-  For each figure, append it with a caption like ``Fig 4.1: One-Line
-  Description''
-\item
-  Again, include a caption for each table as ``Table 1.1: Data of
-  population''
-\item
-  Maximize the referencing of each image into the text of the report.
+Quantum computing is an advanced area of computation that relies on the
+principles of quantum mechanics to process information in fundamentally
+different ways than classical computers. Traditional computers represent
+data as binary digits (bits), which can exist in one of two states: 0 or
+1. Quantum computers, on the other hand, use quantum bits (qubits),
+which can exist in multiple states simultaneously due to the phenomena
+of superposition and entanglement.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    However, do this only if it is either necessary, or it enhances the
-    clarity of the text.
-  \end{itemize}
-\end{itemize}
+This ability allows quantum computers to solve specific types of
+problems much faster than classical computers. Problems involving large
+datasets, complex simulations (such as molecular chemistry),
+optimization, and machine learning could see major improvements in speed
+and accuracy with the use of quantum algorithms.
 
-\chapter{Introduction}\label{sec:Intro}
+As Peter Shor said:
 
-\section{Project Overview}\label{sec:IntroOverview}
+\begin{quote}
+In the near future, quantum computers may be able to break widely used
+encryption systems, but they will also create new, far stronger
+encryption methods.
+\end{quote}
 
-\begin{itemize}
-\item
-  In this introduction, please write relevant information about any
-  technologies the project uses, or its features.
-\item
-  Also, mention the references/bibliographies required here.
-\end{itemize}
+\section{The Foundation of Quantum Computing}\label{foundation}
 
-\section{Project Motivation}\label{sec:IntroMotive}
-
-\begin{itemize}
-\tightlist
-\item
-  Here, mention the motivation behind the project.
-\end{itemize}
+As referenced in \href{chap1}{Introduction} above, Quantum computing is
+based on the fundamental principles of quantum mechanics, the branch of
+physics that describes the behavior of particles at the subatomic level.
+Three key concepts from quantum mechanics form the foundation of quantum
+computing:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
-  Why the project exists?
+  Superposition: A quantum system can exist in a linear combination (or
+  superposition) of multiple states at once. For instance, whereas a
+  classical bit can only be in the state 0 or 1, a qubit can be in a
+  state that is a combination of both 0 and 1. This enables quantum
+  computers to process a vast amount of information in parallel.
 \item
-  What problem the project intends to solve?
+  Entanglement: When two qubits are entangled, their states become
+  interconnected, meaning that changing one qubit will instantly affect
+  the other, regardless of the distance between them. This phenomenon
+  can be used to create highly parallelized computational processes,
+  accelerating problem-solving in quantum algorithms.
 \item
-  Any ideas on how the project goes about doing that?
+  Quantum Interference: Quantum algorithms make use of interference to
+  amplify the probability of correct answers and cancel out wrong ones.
+  By manipulating the phase of the quantum state, quantum computers
+  enhance the likelihood of achieving the correct solution while
+  eliminating errors. Some random Code
+  \texttt{python\ \ \ \ \ \ \ \ \ s\ =\ "HI"\ \ \ \ \ \ \ \ \ if\ s\ ==\ "HI":\ \ \ \ \ \ \ \ \ \ \ \ \ print(s)}
 \end{enumerate}
 
-\chapter{Requirements}\label{sec:Requirements}
+\begin{description}
+\item[Qubit:]
+A qubit (short for quantum bit) is the basic unit of information in
+quantum computing. Unlike a classical bit, which can only represent one
+of two possible states, 0 or 1, a qubit can represent both 0 and 1
+simultaneously due to a property called superposition.
+\end{description}
 
-\begin{itemize}
-\item
-  List all requirements of the project, like software required/tech
-  stack/ technology.
-\item
-  Also specify the hardware components and tools required.
-\item
-  Additional requirements are as per the project.
-\item
-  Each requirement category must have a section dedicated to it.
-\end{itemize}
-
-\chapter{Description of the project}\label{sec:Project}
+Pandoc supports task lists, using the syntax of GitHub-Flavored
+Markdown.
 
 \begin{itemize}
 \tightlist
-\item
-  Explain the working of the project.
-\item
-  As per department/guide concerned, modify this to be several
-  sections/chapters long.
+\item[$\square$]
+  an unchecked task list item
+\item[$\boxtimes$]
+  checked item
 \end{itemize}
 
-\chapter{Output(OR Outcome) of the project}\label{sec:Conclusion}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\begin{itemize}
-\tightlist
-\item
-  Describe the outcome of the project.
+\chapter{The Architecture of Quantum
+Computing}\label{the-architecture-of-quantum-computing}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    This may include the output of the code, or the pictures of this
-    project.
-  \item
-    This is flexible, as the content can be scattered throughout.
-  \item
-    Do this as per the direction of the guide.
-  \end{itemize}
-\end{itemize}
+\begin{tikzpicture}[shorten >=1pt, node distance=2cm, auto]
+    \node (A) {A};
+    \node (B) [right of=A] {B};
+    \node (C) [right of=B] {C};
+    \node (D) [below of=A] {D};
 
-\textbf{THIS CAN ALSO BE THE CONCLUSION OF THE PROJECT, HENCE MODIFY THE
-CHAPTER AND ITS SECTIONS ACCORDINGLY}
+    \path[->] 
+        (A) edge (B)
+        (B) edge (C)
+        (C) edge (B)
+        (A) edge (D);
+\end{tikzpicture}
 
-\chapter{Bibliography}\label{sec:bib}
+\begin{longtable}[]{@{}llll@{}}
+\caption{Caption \{\#tbl:tabRef\}}\tabularnewline
+\toprule\noalign{}
+ID & Name & Age & Country \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+ID & Name & Age & Country \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Alice & 24 & USA \\
+2 & Bob & 30 & Canada \\
+3 & Charlie & 22 & UK \\
+4 & David & 28 & Australia \\
+5 & Emma & 35 & Germany \\
+6 & Frank & 27 & France \\
+\end{longtable}
 
-\begin{itemize}
-\tightlist
-\item
-  Append the bibliography, or the references here.
-\item
-  Style must be ascertained before insertion.
-\end{itemize}
+\[ x^2 + y^2 = c^2 \]
+
+Above equation given by.\autocite{Einstein1905}
+
+This is a citation to the work of Smith et al..\autocite{smith2021}
+
+\begin{figure}
+\centering
+\includegraphics{./resources/img.jpg}
+\caption{My Image}\label{fig:imgRef}
+\end{figure}
+\printbibliography
 \end{document}

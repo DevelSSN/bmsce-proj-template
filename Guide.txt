@@ -1,0 +1,268 @@
+#   Guide to markdown in pandoc:
+
+Pandoc's markdown ways are slightly different to those basic or GitHub flavored ones. This is to ensure maximum flexibility. Due to this, we have to revisit some concepts again.
+
+
+1.  Paragraphs:
+
+A paragraph is one or more lines of text followed by one or more blank lines. Newlines are treated as spaces, so you can reflow your paragraphs as you like. If you need a hard line break, put two or more spaces at the end of a line.
+
+
+2. Headings:
+
+An ATX-style heading consists of one to six # signs and a line of text, optionally followed by any number of # signs. The number of # signs at the beginning of the line is the heading level:
+
+## A level-two heading
+
+### A level-three heading ###
+
+As with setext-style headings, the heading text can contain formatting:
+
+# A level-one heading with a [link](/url) and *emphasis*
+
+Headings can be assigned attributes using this syntax at the end of the line containing the heading text:
+
+{#identifier .class .class key=value key=value}
+Thus, for example, the following headings will all be assigned the identifier foo:
+
+# My heading {#foo}
+
+## My heading ##    {#foo}
+
+My other heading   {#foo}
+---------------
+(This syntax is compatible with PHP Markdown Extra.)
+
+Note that although this syntax allows assignment of classes and key/value attributes, writers generally don’t use all of this information. Identifiers, classes, and key/value attributes are used in HTML and HTML-based formats such as EPUB and slidy. Identifiers are used for labels and link anchors in the LaTeX, ConTeXt, Textile, Jira markup, and AsciiDoc writers.
+
+Headings with the class unnumbered will not be numbered, even if --number-sections is specified. A single hyphen (-) in an attribute context is equivalent to .unnumbered, and preferable in non-English documents. So,
+
+# My heading {-}
+is just the same as
+
+# My heading {.unnumbered}
+If the unlisted class is present in addition to unnumbered, the heading will not be included in a table of contents. (Currently this feature is only implemented for certain formats: those based on LaTeX and HTML, PowerPoint, and RTF.)
+
+
+Block quotations
+
+Markdown uses email conventions for quoting blocks of text. A block quotation is one or more paragraphs or other block elements (such as lists or headings), with each line preceded by a > character and an optional space. (The > need not start at the left margin, but it should not be indented more than three spaces.)
+
+> This is a block quote. This
+> paragraph has two lines.
+>
+> 1. This is a list inside a block quote.
+> 2. Second item.
+Among the block elements that can be contained in a block quote are other block quotes. That is, block quotes can be nested:
+> This is a block quote.
+>
+> > A block quote within a block quote.
+
+Blank Block quote necessary before the nested one.
+
+
+Code Blocks
+
+Pandoc supports multiple coventions for code blocks. However, we limit to the standard markdown format of backticks(`).
+
+```python
+s = "HI"
+if s == "HI":
+	print(s)
+```
+
+OR for inline code `code`
+
+Here mycode is an identifier, haskell and numberLines are classes, and startFrom is an attribute with value 100. Some output formats can use this information to do syntax highlighting. Currently, the only output formats that use this information are HTML, LaTeX, Docx, Ms, and PowerPoint. If highlighting is supported for your output format and language, then the code block above will appear highlighted, with numbered lines. (To see which languages are supported, type pandoc --list-highlight-languages.) Otherwise, the code block above will appear as follows:
+
+<pre id="mycode" class="haskell numberLines" startFrom="100">
+  <code>
+  ...
+  </code>
+</pre>
+The numberLines (or number-lines) class will cause the lines of the code block to be numbered, starting with 1 or the value of the startFrom attribute. The lineAnchors (or line-anchors) class will cause the lines to be clickable anchors in HTML output.
+
+Lists
+Bullet lists
+A bullet list is a list of bulleted list items. A bulleted list item begins with a bullet (*, +, or -). Here is a simple example:
+
+* one
+* two
+* three
+This will produce a “compact” list. If you want a “loose” list, in which each item is formatted as a paragraph, put spaces between the items:
+
+* one
+
+* two
+
+* three
+The bullets need not be flush with the left margin; they may be indented one, two, or three spaces. The bullet must be followed by whitespace.
+
+List items look best if subsequent lines are flush with the first line (after the bullet):
+
+* here is my first
+  list item.
+* and my second.
+But Markdown also allows a “lazy” format:
+
+* here is my first
+list item.
+* and my second.
+Block content in list items
+A list item may contain multiple paragraphs and other block-level content. However, subsequent paragraphs must be preceded by a blank line and indented to line up with the first non-space content after the list marker.
+
+  * First paragraph.
+
+    Continued.
+
+  * Second paragraph. With a code block, which must be indented
+    eight spaces:
+
+        { code }
+Exception: if the list marker is followed by an indented code block, which must begin 5 spaces after the list marker, then subsequent paragraphs must begin two columns after the last character of the list marker:
+
+*     code
+
+  continuation paragraph
+List items may include other lists. In this case the preceding blank line is optional. The nested list must be indented to line up with the first non-space character after the list marker of the containing list item.
+
+* fruits
+  + apples
+    - macintosh
+    - red delicious
+  + pears
+  + peaches
+* vegetables
+  + broccoli
+  + chard
+As noted above, Markdown allows you to write list items “lazily,” instead of indenting continuation lines. However, if there are multiple paragraphs or other blocks in a list item, the first line of each must be indented.
+
++ A lazy, lazy, list
+item.
+
++ Another one; this looks
+bad but is legal.
+
+    Second paragraph of second
+list item.
+Ordered lists
+Ordered lists work just like bulleted lists, except that the items begin with enumerators rather than bullets.
+
+In original Markdown, enumerators are decimal numbers followed by a period and a space. The numbers themselves are ignored, so there is no difference between this list:
+
+1.  one
+2.  two
+3.  three
+and this one:
+
+5.  one
+7.  two
+1.  three
+
+Pandoc supports task lists, using the syntax of GitHub-Flavored Markdown.
+
+- [ ] an unchecked task list item
+- [x] checked item
+
+
+Definiton lists:
+
+Pandoc supports definition lists, using the syntax of PHP Markdown Extra with some extensions.2
+
+Term 1
+
+:   Definition 1
+
+Term 2 with *inline markup*
+
+:   Definition 2
+
+        { some code, part of Definition 2 }
+
+    Third paragraph of definition 2.
+Each term must fit on one line, which may optionally be followed by a blank line, and must be followed by one or more definitions. A definition begins with a colon or tilde, which may be indented one or two spaces.
+
+A term may have multiple definitions, and each definition may consist of one or more block elements (paragraph, code block, list, etc.), each indented four spaces or one tab stop. The body of the definition (not including the first line) should be indented four spaces. However, as with other Markdown lists, you can “lazily” omit indentation except at the beginning of a paragraph or other block element:
+
+Term 1
+
+:   Definition
+with lazy continuation.
+
+    Second paragraph of the definition.
+If you leave space before the definition (as in the example above), the text of the definition will be treated as a paragraph. In some output formats, this will mean greater spacing between term/definition pairs. For a more compact definition list, omit the space before the definition:
+
+Term 1
+  ~ Definition 1
+
+Term 2
+  ~ Definition 2a
+  ~ Definition 2b
+
+
+What if you want to put an indented code block after a list?
+
+-   item one
+-   item two
+
+    { my code block }
+Trouble! Here pandoc (like other Markdown implementations) will treat { my code block } as the second paragraph of item two, and not as a code block.
+
+To “cut off” the list after item two, you can insert some non-indented content, like an HTML comment, which won’t produce visible output in any format:
+
+-   item one
+-   item two
+
+<!-- end of list -->
+
+    { my code block }
+
+A line containing a row of three or more *, -, or _ characters (optionally separated by spaces) produces a horizontal rule:
+
+*  *  *  *
+
+---------------
+We strongly recommend that horizontal rules be separated from surrounding text by blank lines. 
+
+To underline text, use the underline class:
+
+[Underline]{.underline}
+
+To Bold Text, use *BOLDED*
+To italicize, use **ITALICS**
+
+
+LaTeX Math
+It will appear verbatim surrounded by \(...\) (for inline math) or \[...\] (for display math).
+
+
+Pandoc’s Markdown allows footnotes, using the following syntax:
+
+Here is a footnote reference,[^1] and another.[^longnote]
+
+[^1]: Here is the footnote.
+
+[^longnote]: Here's one with multiple blocks.
+
+    Subsequent paragraphs are indented to show that they
+belong to the previous footnote.
+
+        { some.code }
+
+    The whole paragraph can be indented, or just the first
+    line.  In this way, multi-paragraph footnotes work like
+    multi-paragraph list items.
+
+This paragraph won't be part of the note, because it
+isn't indented.
+The identifiers in footnote references may not contain spaces, tabs, newlines, or the characters ^, [, or ]. These identifiers are used only to correlate the footnote reference with the note itself; in the output, footnotes will be numbered sequentially.
+
+The footnotes themselves need not be placed at the end of the document. They may appear anywhere except inside other block elements (lists, block quotes, tables, etc.). Each footnote should be separated from surrounding content (including other footnotes) by blank lines.
+
+
+Inline footnotes are also allowed (though, unlike regular notes, they cannot contain multiple paragraphs). The syntax is as follows:
+
+Here is an inline note.^[Inline notes are easier to write, since
+you don't have to pick an identifier and move down to type the
+note.]
+Inline and regular footnotes may be mixed freely.
