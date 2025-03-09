@@ -4,6 +4,7 @@
 check_tlmgr_installed() {
     if ! command -v tlmgr &> /dev/null; then
         echo "TeX Live Manager (tlmgr) is not installed. Please install it first."
+		echo "Install biber also"
         exit 1
     fi
 }
@@ -19,6 +20,7 @@ install_required_packages() {
 		hyphenat
 		ragged2e
 		pgf
+		logreq
     )
 
     # Ensure tlmgr is up-to-date before installing packages

@@ -1,47 +1,36 @@
-#   Requirements{#sec:Requirements}
+#   The Architecture of Quantum Computing
 
--   List all requirements of the project, like software required/tech stack/
-    technology.
--   Also specify the hardware components and tools required.
--   Additional requirements are as per the project.
+\begin{tikzpicture}[shorten >=1pt, node distance=2cm, auto]
+    \node (A) {A};
+    \node (B) [right of=A] {B};
+    \node (C) [right of=B] {C};
+    \node (D) [below of=A] {D};
 
--   Each requirement category must have a section dedicated to it.
+    \path[->] 
+        (A) edge (B)
+        (B) edge (C)
+        (C) edge (B)
+        (A) edge (D);
+\end{tikzpicture}
 
-#   Description of the project{#sec:Project}
 
--   Explain the working of the project.
+| ID  | Name    | Age | Country   |
+| --- | ------- | --- | --------- |
+| 1   | Alice   | 24  | USA       |
+| 2   | Bob     | 30  | Canada    |
+| 3   | Charlie | 22  | UK        |
+| 4   | David   | 28  | Australia |
+| 5   | Emma    | 35  | Germany   |
+| 6   | Frank   | 27  | France    |
 
-Below is a State Transition Diagram for a simple traffic light system:
+:   Caption {#tbl:tabRef}
 
-<!-- $$ -->
-<!-- \begin{tikzpicture}[shorten >=1pt, node distance=2.5cm, on grid, auto] -->
-<!--     \node[state, initial] (A)   {Red};  -->
-<!--     \node[state] (B) [right=of A] {Green};  -->
-<!--     \node[state] (C) [below=of B] {Yellow};  -->
-<!--      -->
-<!--     \path[->]  -->
-<!--     (A) edge node {timeout} (B) -->
-<!--     (B) edge node {timeout} (C) -->
-<!--     (C) edge node {timeout} (A); -->
-<!-- \end{tikzpicture} -->
-<!-- $$ -->
+$$ x^2 + y^2 = c^2 $$
 
-This diagram shows the state transitions of a traffic light system.
+Above equation given by [@Einstein1905].
 
--   As per department/guide concerned, modify this to be several sections/chapters long.
+This is a citation to the work of Smith et al. [@smith2021].
 
-#   Output(OR Outcome) of the project{#sec:Conclusion}
-
--   Describe the outcome of the project.
-    -   This may include the output of the code, or the pictures of this project.
-    -   This is flexible, as the content can be scattered throughout.
-    -   Do this as per the direction of the guide.
-
-**THIS CAN ALSO BE THE CONCLUSION OF THE PROJECT, HENCE MODIFY THE CHAPTER AND ITS SECTIONS ACCORDINGLY**
-
-#   Bibliography{#sec:bib}
-
--   Append the bibliography, or the references here.
--   Style must be ascertained before insertion.
+![My Image](./resources/img.jpg){#fig:imgRef}
 
 
