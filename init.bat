@@ -31,7 +31,7 @@ where pandoc >nul 2>nul
 IF %ERRORLEVEL% NEQ 0 (
     echo Pandoc not found. Installing Pandoc...
     REM Install Pandoc (customize installation steps for Windows)
-    powershell -Command "Invoke-WebRequest -Uri 'https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-windows-x86_64.msi' -OutFile 'pandoc-installer.msi'"
+    powershell -Command "Invoke-WebRequest -Uri 'https://github.com/jgm/pandoc/releases/download/3.6.3/pandoc-3.6.3-windows-x86_64.msi' -OutFile 'pandoc-installer.msi'"
     start /wait msiexec /i pandoc-installer.msi /quiet
 ) ELSE (
     echo Pandoc is already installed.
