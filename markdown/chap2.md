@@ -1,5 +1,6 @@
 #   The Architecture of Quantum Computing
 
+\begin{center}
 \begin{tikzpicture}[shorten >=1pt, node distance=2cm, auto]
     \node (A) {A};
     \node (B) [right of=A] {B};
@@ -12,6 +13,8 @@
         (C) edge (B)
         (A) edge (D);
 \end{tikzpicture}
+\label{GraphRef}
+\end{center}
 
 
 | ID  | Name    | Age | Country   |

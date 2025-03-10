@@ -1,0 +1,9 @@
+# Ignore all main.* files
+main.*
+*.aux
+*.lot
+*.lof
+*.bbl
+*.bcf
+*.run.xml
+*.blg

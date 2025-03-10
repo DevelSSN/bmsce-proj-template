@@ -1,65 +1,45 @@
 @echo off
-setlocal enabledelayedexpansion
+SETLOCAL
 
-:: Function to check if tlmgr is installed
-call :check_tlmgr_installed
-if errorlevel 1 exit /b
-
-:: Function to install required LaTeX packages
-call :install_required_packages
-
-:: Menu to choose options
-:menu
-cls
-echo Select an option:
-echo 1) Use Online LaTeX Compiler (does nothing)
-echo 2) Ensure tlmgr is installed with required packages for pandoc
-echo 3) Exit
-
-set /p choice=Enter your choice (1-3): 
-
-if "%choice%"=="1" (
-    echo Option 1: Use an online LaTeX compiler (does nothing)
-    :: Option 1 does nothing
-    pause
-    goto menu
-) else if "%choice%"=="2" (
-    call :check_tlmgr_installed
-    call :install_required_packages
-    goto menu
-) else if "%choice%"=="3" (
-    echo Exiting...
-    exit /b
-) else (
-    echo Invalid option. Please choose a valid option.
-    pause
-    goto menu
+REM Check for tlmgr
+echo Checking for tlmgr...
+where tlmgr >nul 2>nul
+IF %ERRORLEVEL% NEQ 0 (
+    echo tlmgr not found. Installing TeX Live...
+    REM Download and install TeX Live (customize the URL and installer as necessary)
+    powershell -Command "Invoke-WebRequest -Uri 'http://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe' -OutFile 'install-tl-windows.exe'"
+    start /wait install-tl-windows.exe /silent
+) ELSE (
+    echo tlmgr is already installed.
 )
 
-:: Function to check if tlmgr is installed
-:check_tlmgr_installed
-where tlmgr > nul 2>&1
-if %errorlevel% neq 0 (
-    echo TeX Live Manager (tlmgr) is not installed. Please install it first.
-    exit /b 1
-)
-echo tlmgr is installed.
-goto :eof
-
-:: Function to install required LaTeX packages
-:install_required_packages
-set required_packages=tabular graphicx lipsum geometry soul hyphenat ragged2e
-
-:: Ensure tlmgr is up-to-date before installing packages
-echo Updating tlmgr...
-tlmgr update --self
-
-echo Installing required LaTeX packages...
-for %%p in (%required_packages%) do (
-    echo Installing %%p...
-    tlmgr install %%p
+REM Check for biber
+echo Checking for biber...
+where biber >nul 2>nul
+IF %ERRORLEVEL% NEQ 0 (
+    echo Biber not found. Installing Biber...
+    REM Install Biber (customize installation steps for Windows)
+    powershell -Command "Invoke-WebRequest -Uri 'https://sourceforge.net/projects/biblatex-biber/files/latest/download' -OutFile 'biber-installer.exe'"
+    start /wait biber-installer.exe
+) ELSE (
+    echo Biber is already installed.
 )
 
-echo All required LaTeX packages are installed.
-goto :eof
+REM Check for pandoc
+echo Checking for pandoc...
+where pandoc >nul 2>nul
+IF %ERRORLEVEL% NEQ 0 (
+    echo Pandoc not found. Installing Pandoc...
+    REM Install Pandoc (customize installation steps for Windows)
+    powershell -Command "Invoke-WebRequest -Uri 'https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-windows-x86_64.msi' -OutFile 'pandoc-installer.msi'"
+    start /wait msiexec /i pandoc-installer.msi /quiet
+) ELSE (
+    echo Pandoc is already installed.
+)
 
+REM Install TeX Live packages via tlmgr
+echo Installing TeX Live packages...
+tlmgr install tabulary graphicx lipsum geometry soul hyphenat ragged2e pgf logreq
+
+echo Installation complete!
+ENDLOCAL
