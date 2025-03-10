@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.6)  10 MAR 2025 22:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.3.6)  11 MAR 2025 00:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1028,34 +1028,34 @@ Package: xurl 2022/01/09 v 0.10 modify URL breaks
 
 xurl: Set penalties for biblatex
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 104.
+Package hyperref Info: Option `colorlinks' set `true' on input line 118.
 \@quotelevel=\count477
 \@quotereset=\count478
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 10
-6.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 12
+0.
  (/home/master/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (./main.aux (./frontpage.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1126,22 +1126,22 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 106.
-Package biblatex Info: Reference segment=0 on input line 106.
-LaTeX Info: Redefining \microtypecontext on input line 106.
-Package microtype Info: Applying patch `item' on input line 106.
-Package microtype Info: Applying patch `toc' on input line 106.
-Package microtype Info: Applying patch `eqnum' on input line 106.
-Package microtype Info: Applying patch `footnote' on input line 106.
-Package microtype Info: Applying patch `verbatim' on input line 106.
-LaTeX Info: Redefining \microtypesetup on input line 106.
+Package biblatex Info: Reference section=0 on input line 120.
+Package biblatex Info: Reference segment=0 on input line 120.
+LaTeX Info: Redefining \microtypecontext on input line 120.
+Package microtype Info: Applying patch `item' on input line 120.
+Package microtype Info: Applying patch `toc' on input line 120.
+Package microtype Info: Applying patch `eqnum' on input line 120.
+Package microtype Info: Applying patch `footnote' on input line 120.
+Package microtype Info: Applying patch `verbatim' on input line 120.
+LaTeX Info: Redefining \microtypesetup on input line 120.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 106.
+LaTeX Info: Redefining \showhyphens on input line 120.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1155,7 +1155,7 @@ Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 106.
+Package hyperref Info: Link coloring ON on input line 120.
 \openout2 = `frontpage.aux'.
 
  (./frontpage.tex
@@ -1276,7 +1276,12 @@ Package lipsum Warning: Unknown language 'latin'. Hyphenation patterns for
 
 ])
 
-[5] (./main.toc)
+[5] (./main.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 2.
+)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
@@ -1303,10 +1308,38 @@ Package lipsum Warning: Unknown language 'latin'. Hyphenation patterns for
 [8
 
 ]
+Chapter 1.
 
-LaTeX Warning: Empty bibliography on input line 120.
 
-(./main.aux (./frontpage.aux))
+[1
+
+
+]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+86.
+ (/home/master/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+[2]
+Chapter 2.
+<./resources/img.jpg, id=81, 200.75pt x 200.75pt>
+File: ./resources/img.jpg Graphic file (type jpg)
+<use ./resources/img.jpg>
+Package pdftex.def Info: ./resources/img.jpg  used on input line 257.
+(pdftex.def)             Requested size: 200.7495pt x 200.7495pt.
+
+
+[3
+
+{/home/master/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/home/master/texmf/fonts/
+enc/dvips/lm/lm-rm.enc}]
+
+[4 <./resources/img.jpg>]
+
+[5
+
+] (./main.aux (./frontpage.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
@@ -1316,20 +1349,23 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33562 strings out of 475178
- 626238 string characters out of 5766438
- 1569570 words of memory out of 5000000
- 55918 multiletter control sequences out of 15000+600000
- 620356 words of font info for 138 fonts, out of 8000000 for 9000
+ 34055 strings out of 475178
+ 635461 string characters out of 5766438
+ 1572268 words of memory out of 5000000
+ 56352 multiletter control sequences out of 15000+600000
+ 634384 words of font info for 165 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,9n,93p,1001b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,9n,93p,1001b,1643s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/master/texmf/fonts/type1/public/lm/lmbx12.pfb></home/master/texmf/font
-s/type1/public/lm/lmr12.pfb></home/master/texmf/fonts/type1/public/lm/lmr17.pfb
->
-Output written on main.pdf (9 pages, 437415 bytes).
+s/type1/public/lm/lmmi12.pfb></home/master/texmf/fonts/type1/public/lm/lmr12.pf
+b></home/master/texmf/fonts/type1/public/lm/lmr17.pfb></home/master/texmf/fonts
+/type1/public/lm/lmr8.pfb></home/master/texmf/fonts/type1/public/lm/lmri12.pfb>
+</home/master/texmf/fonts/type1/public/lm/lmtt12.pfb></home/master/texmf/fonts/
+type1/public/amsfonts/symbols/msam10.pfb>
+Output written on main.pdf (14 pages, 526981 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 32791 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 160 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 38964 words of extra memory for PDF output out of 42996 (max. 10000000)
 

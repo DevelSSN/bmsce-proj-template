@@ -1,45 +1,10 @@
 #!/bin/bash
 
-# Function to check if the file exists and has the correct extension
-check_file() {
-    local file=$1
-    local ext=$2
-
-    # Check if the file exists and has the correct extension
-    if [[ -f "$file" && "${file: -${#ext}}" == "$ext" ]]; then
-        echo "You selected $file"
-        echo "$file"
-    else
-        echo "Invalid $ext file. Please enter a valid $ext file:"
-        read file
-        check_file "$file" "$ext"  # Recursively call to validate the new input
-    fi
-}
-
-# Ask user for the directory to search (default is current directory)
-echo "Enter the directory to search for files (press Enter to use the current directory):"
-read directory
-directory=${directory:-$(pwd)}  # Default to current directory if no input
-
-# Ask user for the bibliography file (.bib)
-echo "Enter the path to your .bib file (press Enter to search in $directory):"
-read BIBFILE
-BIBFILE=${BIBFILE:-"$(ls $directory/*.bib)"}  # Default to current directory if empty
-
-echo "$BIBFILE"
-# Check if the provided .bib file exists and is valid
-BIBFILE=$(check_file "$BIBFILE" ".bib")
-
-# Ask user for the CSL style file (.csl)
-echo "Enter the path to your .csl file (press Enter to search in $directory):"
-read CSLFILE
-CSLFILE=${CSLFILE:-"$(ls $directory/*.csl)"}  # Default to current directory if empty
-
-# Check if the provided .csl file exists and is valid
-CSLFILE=$(check_file "$CSLFILE" ".csl")
+BIBFILE="$(ls *.bib)"
+CSLFILE="$(ls *.csl)"
 
 # Find all markdown files in the directory
-CONV_ARR=($(find "$directory/markdown" -type f -name "*.md"))
+CONV_ARR=($(find "./markdown" -type f -name "*.md"))
 
 # Check if any markdown files are found
 if [ ${#CONV_ARR[@]} -eq 0 ]; then
