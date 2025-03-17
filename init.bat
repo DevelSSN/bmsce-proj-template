@@ -13,18 +13,6 @@ IF %ERRORLEVEL% NEQ 0 (
     echo tlmgr is already installed.
 )
 
-REM Check for biber
-echo Checking for biber...
-where biber >nul 2>nul
-IF %ERRORLEVEL% NEQ 0 (
-    echo Biber not found. Installing Biber...
-    REM Install Biber (customize installation steps for Windows)
-    powershell -Command "Invoke-WebRequest -Uri 'https://sourceforge.net/projects/biblatex-biber/files/latest/download' -OutFile 'biber-installer.exe'"
-    start /wait biber-installer.exe
-) ELSE (
-    echo Biber is already installed.
-)
-
 REM Check for pandoc
 echo Checking for pandoc...
 where pandoc >nul 2>nul
@@ -39,7 +27,7 @@ IF %ERRORLEVEL% NEQ 0 (
 
 REM Install TeX Live packages via tlmgr
 echo Installing TeX Live packages...
-tlmgr install tabulary graphicx lipsum geometry soul hyphenat ragged2e pgf logreq
+tlmgr install tabulary graphicx lipsum geometry soul hyphenat ragged2e pgf logreq biber
 
 echo Installation complete!
 ENDLOCAL
