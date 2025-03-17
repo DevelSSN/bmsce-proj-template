@@ -1,64 +1,100 @@
 #!/bin/bash
 
-# Function to check if tlmgr is installed
-check_tlmgr_installed() {
-    if ! command -v tlmgr &> /dev/null; then
-        echo "TeX Live Manager (tlmgr) is not installed. Please install it first."
-		echo "Install biber also"
-        exit 1
+# Function to install TeX Live packages via tlmgr
+install_tlmgr_packages() {
+    echo "Installing TeX Live packages..."
+    tlmgr install tabulary graphicx lipsum geometry soul hyphenat ragged2e pgf logreq
+}
+
+# Function to install biber
+install_biber() {
+    echo "Installing Biber..."
+    if ! command -v biber &> /dev/null
+    then
+        echo "Biber not found, installing..."
+        # Install biber (for Debian/Ubuntu-based systems)
+        sudo apt-get update
+        sudo apt-get install -y biber
+    else
+        echo "Biber is already installed!"
     fi
 }
 
-# Function to install required LaTeX packages using tlmgr
-install_required_packages() {
-    required_packages=(
-		tabulary
-		graphicx
-		lipsum
-		geometry
-		soul
-		hyphenat
-		ragged2e
-		pgf
-		logreq
-    )
-
-    # Ensure tlmgr is up-to-date before installing packages
-    echo "Updating tlmgr..."
-    tlmgr update --self
-
-    echo "Installing required LaTeX packages..."
-    for package in "${required_packages[@]}"; do
-  echo "Installing $package..."
-        tlmgr install "$package"
-    done
-    echo "All required LaTeX packages are installed."
+# Function to install pandoc
+install_pandoc() {
+    echo "Installing Pandoc..."
+    if ! command -v pandoc &> /dev/null
+    then
+        echo "Pandoc not found, installing..."
+        # Install pandoc (for Debian/Ubuntu-based systems)
+        sudo apt-get update
+        sudo apt-get install -y pandoc
+    else
+        echo "Pandoc is already installed!"
+    fi
 }
 
-# Menu to choose options
-while true; do
-    echo "Select an option:"
-    echo "1) Use Online LaTeX Compiler (does nothing)"
-    echo "2) Ensure tlmgr is installed with required packages for pandoc"
-    echo "3) Exit"
-    
-    read -p "Enter your choice (1-3): " choice
-    
-    case $choice in
-        1)
-            echo "Option 1: Use an online LaTeX compiler (does nothing)"
-            # Option 1 does nothing
-            ;;
-        2)
-            check_tlmgr_installed
-            install_required_packages
-            ;;
-        3)
-            echo "Exiting..."
-            exit 0
-            ;;
-        *)
-            echo "Invalid option. Please choose a valid option."
-            ;;
-    esac
-done
+# Function to install tlmgr
+install_tlmgr() {
+    echo "Installing tlmgr..."
+    if ! command -v tlmgr &> /dev/null
+    then
+        echo "tlmgr not found, installing TeX Live..."
+        # Install TeX Live (for Debian/Ubuntu-based systems)
+        sudo apt-get update
+        sudo apt-get install -y texlive
+    else
+        echo "tlmgr is already installed!"
+    fi
+}
+
+# Function to check and install necessary tools
+install_tools() {
+    # Check if tlmgr, biber, and pandoc are installed
+    if ! command -v tlmgr &> /dev/null
+    then
+        read -p "tlmgr is not installed. Would you like to install it? (y/n): " response
+        if [[ "$response" =~ ^[Yy]$ ]]
+        then
+            install_tlmgr
+        fi
+    else
+        echo "tlmgr is already installed."
+    fi
+
+    if ! command -v biber &> /dev/null
+    then
+        read -p "Biber is not installed. Would you like to install it? (y/n): " response
+        if [[ "$response" =~ ^[Yy]$ ]]
+        then
+            install_biber
+        fi
+    else
+        echo "Biber is already installed."
+    fi
+
+    if ! command -v pandoc &> /dev/null
+    then
+        read -p "Pandoc is not installed. Would you like to install it? (y/n): " response
+        if [[ "$response" =~ ^[Yy]$ ]]
+        then
+            install_pandoc
+        fi
+    else
+        echo "Pandoc is already installed."
+    fi
+}
+
+# Main installation process
+echo "Starting installation process..."
+
+install_tools
+
+# Install TeX Live packages
+read -p "Would you like to install the TeX Live packages? (y/n): " response
+if [[ "$response" =~ ^[Yy]$ ]]
+then
+    install_tlmgr_packages
+fi
+
+echo "Installation process complete!"
