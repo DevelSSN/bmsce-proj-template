@@ -10,7 +10,7 @@ git clone https://github.com/DevelSSN/bmsce-proj-template.git
 ```
 or extract the ZIP associated with the repository by clicking on the code button at the top right side of the repo.
 
--   For Windows, run `Installer.exe` to install required package.
+-   For Windows, run `init.bat` to install required package.
 -   For Ubuntu/WSL, run `init.sh` to install software required by the template.
 -   For other OS, please consult the respective package repositories online.
 
